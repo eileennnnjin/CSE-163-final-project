@@ -1,9 +1,6 @@
-from scipy.stats import pearsonr
 import pandas as pd
 import seaborn as sns
-import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
 
 def numeric_factors(df):
     """
@@ -18,7 +15,7 @@ def numeric_factors(df):
     df5 = sev[sev['Visibility(mi)'].notna()]
     df6 = sev[sev['Wind_Speed(mph)'].notna()]
     
-    # cut each numeric factors into 5 buckets for drawing the pie chart
+    # cut each numeric factors into 5/10 buckets for drawing the pie chart
     sev['temp'] = pd.cut(df1['Temperature(F)'], 5)
     sev['wind_chill'] = pd.cut(df2['Wind_Chill(F)'], 5)
     
@@ -210,10 +207,12 @@ def cate_factors(df):
 
     plt.savefig('categorical factors.png')
 
+
 def main():
     df = pd.read_csv('US_Accidents_Dec19.csv')
     numeric_factors(df)
     cate_factors(df)
+
 
 if __name__ == '__main__':
     main()
