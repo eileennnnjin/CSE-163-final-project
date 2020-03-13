@@ -14,9 +14,9 @@ def main():
     df = pd.read_csv('US_Accidents_Dec19.csv')
 
     # Question 1:
+    wind_speed(df)
     numeric_factors(df)
     cate_factors(df)
-    wind_speed(df)
 
     # Question 2: Predict the severity of traffic accident
     # with machine learning model
