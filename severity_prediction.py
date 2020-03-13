@@ -11,27 +11,20 @@ import pandas as pd
 
 def fit_and_predict_severity(data):
     filtered = data.fillna(0)
-    print(len(filtered))
     X = filtered.loc[:, ['Temperature(F)', 'Wind_Chill(F)', 'Humidity(%)',
                          'Pressure(in)', 'Visibility(mi)',
                          'Wind_Speed(mph)', 'Precipitation(in)',
-                         'Sunrise_Sunset']]
-    print(len(X))
+                         'Sunrise_Sunset', 'Amenity', 'Bump', 'Crossing',
+                         'Give_Way', 'Junction', 'No_Exit', 'Railway',
+                         'Roundabout', 'Station', 'Stop', 'Traffic_Calming',
+                         'Traffic_Signal', 'Turning_Loop']]
     X = pd.get_dummies(X)
     y = filtered['Severity']
-    print(len(y))
     X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                         test_size=0.20)
     model = DecisionTreeClassifier()
     model.fit(X_train, y_train)
     y_test_pred = model.predict(X_test)
-    print(accuracy_score(y_test, y_test_pred))
-    return mean_squared_error(y_test, y_test_pred)
-
-def main():
-    data = pd.read_csv('US_Accidents_Dec19.csv', na_values=0)
-    print(len(data))
-    print(fit_and_predict_severity(data))
-
-if __name__ == '__main__':
-    main()
+    mse = mean_squared_error(y_test, y_test_pred)
+    acs = accuracy_score(y_test, y_test_pred)
+    return mse, acs
