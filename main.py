@@ -10,6 +10,9 @@ from wind_speed import wind_speed
 
 
 def main():
+    """
+    Test the functions from analysis programs
+    """
     # Load dataset
     df = pd.read_csv('US_Accidents_Dec19.csv')
 
