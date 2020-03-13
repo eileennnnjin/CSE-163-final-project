@@ -1,6 +1,7 @@
 # Yujie He
 # 1664470
 # NetId: yh56
+# 03-12-2020
 # Use Machine Learning to train the program to predict the
 # severity of the traffic accident with given features.
 from sklearn.model_selection import train_test_split

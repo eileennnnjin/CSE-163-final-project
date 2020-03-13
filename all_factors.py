@@ -1,3 +1,5 @@
+# Jin Lin(1766362, NetId: jinl9)
+# 03-12-2020
 import pandas as pd
 import matplotlib.pyplot as plt
 
