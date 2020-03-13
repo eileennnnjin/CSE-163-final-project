@@ -1,6 +1,4 @@
-# Yujie He
-# 1664470
-# NetId: yh56
+# Yujie He(1664470, NetId: yh56), Jin Lin(1766362, NetId: jinl9)
 # Test the analysis function we wrote
 import pandas as pd
 from severity_prediction import fit_and_predict_severity
@@ -16,7 +14,8 @@ def main():
     # Load dataset
     df = pd.read_csv('US_Accidents_Dec19.csv')
 
-    # Question 1:
+    # Question 1: Using pie charts to show the percentage of each range
+    # of a given factor. 
     wind_speed(df)
     numeric_factors(df)
     cate_factors(df)
